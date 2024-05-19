@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QED – Proof tree editor</title>
+  </head>
+  <body>
+    <h1>Éditeur d’arbres de preuves</h1>
+    <div id="root"></div>
+
+    <h2>Documentation</h2>
+    <main>
+      <p>
+      Cet outil permet de réaliser un arbre de preuve de manière interactive.
+      Il supporte actuellement la logique intuitionniste, et la logique classique.
+      Je travaille actuellement sur l’ajout de la logique du 1<sup>er</sup> ordre.
+      </p>
+
+      <p>
+        Pour utiliser cet outil, il suffit d’entrer un séquent avec le format décrit ci-après.
+        Un séquent s’écrit de la forme « <i>H</i><sub>1</sub> ; ... ; <i>H</i><sub><i>n</i></sub> ⊢ <i>G</i> », où les <i>H</i><sub><i>i</i></sub> et <i>G</i> sont des formules.
+        Le caractère ‘⊢’ est un caractère <span class="sf">Unicode</span>, mais il peut également être réalisé avec ‘<span class="tt">|-</span>.’
+        Le format d’une formule est donné par ci-dessous.
+        <ul>
+          <li>Si <i>F</i> = ⊥, on note la formule <i>F</i> comme ‘<span class="tt">false</span>,’ ‘<span class="tt">_|_</span>’ ou encore ‘<span class="tt">⊥</span>.’</li>
+          <li>Si <i>F</i> = ⊤, on note la formule <i>F</i> comme ‘<span class="tt">true</span>,’ ‘<span class="tt">T</span>’ ou encore ‘<span class="tt">⊤</span>.’</li>
+          <li>Si <i>F</i> = <i>P</i>(<i>x</i><sub>1</sub>,...,<i>x</i><sub><i>n</i></sub>) on note la formule <i>F</i> comme ‘<span class="tt">P(x<sub>1</sub>,..., x<sub>n</sub>)</span>’ ou encore ‘<span class="tt">P</span>’ si <i>P</i> n’a aucun terme.
+          <li>Si <i>F</i> = ¬<i>G</i>, on note la formule <i>F</i> comme ‘<span class="tt">not G</span>,’ ‘<span class="tt">~G</span>’ ou encore ‘<span class="tt">¬G</span>.’</li>
+          <li>Si <i>F</i> = <i>G</i> ∧ <i>H</i>, on note la formule <i>F</i> comme ‘<span class="tt">G and H</span>,’ ‘<span class="tt">G /\ H</span>’ ou encore ‘<span class="tt">G ∧ H</span>.’</li>
+          <li>Si <i>F</i> = <i>G</i> ∨ <i>H</i>, on note la formule <i>F</i> comme ‘<span class="tt">G or H</span>,’ ‘<span class="tt">G \/ H</span>’ ou encore ‘<span class="tt">G ∨ H</span>.’</li>
+          <li>Si <i>F</i> = <i>G</i> → <i>H</i>, on note la formule <i>F</i> comme ‘<span class="tt">G => H</span>,’ ‘<span class="tt">G -> H</span>’ ou encore ‘<span class="tt">G → H</span>.’</li>
+          <li>Si <i>F</i> = (<span class="math">∀</span><i>x</i>, <i>G</i>), on note la formule <i>F</i> comme ‘<span class="tt">forall x, G</span>,’ ‘<span class="tt">\-/ x, G</span>’ ou encore ‘<span class="tt">∀x, G</span>.’</li>
+          <li>Si <i>F</i> = (<span class="math">∃</span><i>x</i>, <i>G</i>), on note la formule <i>F</i> comme ‘<span class="tt">exists x, G</span>,’ ‘<span class="tt">-] x, G</span>’ ou encore ‘<span class="tt">∃x, G</span>.’</li>
+        </ul>
+        <i>Attention à la virgule dans le cas du </i><span class="math">∀</span><i>x</i>, <i>G et du </i><span class="math">∃</span><i>x</i>, <i>G</i>.
+        Si la formule n’est pas reconnue correctement, on pourra ajouter des parenthèses.
+      </p>
+
+      <p>
+        Lors de la création de l’arbre de preuve, appliquer certaines règles demande “des arguments.” Ceci est vrai pour la règle <span class="math">→e</span> notamment : on transforme l’objectif <i>H</i> en deux objectifs <i>G</i> → <i>H</i>, et <i>G</i>, il est donc important de préciser quelle formule <i>G</i> choisir.
+      </p>
+
+      <p>
+        Ce projet a été réalisé dans le cadre du soutien en informatique en prépa <span class="math unbreakable">MPI<sup>(⋆|𝜀)</sup></span>
+        par Hugo SALOU.
+        En cas de <i>bug</i>, merci de me contacter via Discord (<i>username</i> : <span class="tt unbreakable">hugos29</span>).
+      </p>
+    </main>
+    <script type="module" src="/src/main.tsx"></script>
+    <script src="./src/parser.js"></script>
+  </body>
+</html>

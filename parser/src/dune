@@ -1,0 +1,11 @@
+(menhir
+ (modules parser)
+ (flags --explain --dump))
+
+(ocamllex lexer)
+
+(executable
+ (name main)
+ (modes js)
+ (libraries yojson)
+ (preprocess (pps js_of_ocaml-ppx)))

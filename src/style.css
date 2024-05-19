@@ -1,0 +1,164 @@
+#root > * {
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+:root {
+  font-size: 16pt;
+  font-family: 'Latin Modern Roman';
+  background: #faf4ed;
+  color: #575279;
+}
+
+body {
+  overflow-x: hidden;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#root {
+  max-width: 100vw;
+}
+
+#root > input {
+  justify-self: start;
+  align-self: start;
+}
+
+#root span.math, .rulename {
+	padding: 1em;
+	display: inline-block;
+  font-family: 'Latin Modern Math';
+}
+
+span.math {
+  font-family: 'Latin Modern Math';
+}
+
+main {
+  max-width: 1000px;
+  text-align: justify;
+}
+
+.sf { font-family: "Latin Modern Sans"; }
+.tt { font-family: 'Latin Modern Mono'; }
+
+.proof {
+  display: inline-flex;
+  flex-direction: column;
+}
+.proof-first {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+.prems {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+.inter-proof {
+  border-bottom: 1px solid #575279;
+  width: 1em;
+}
+.concl {
+  display: inline-flex;
+  margin-top: -1px;
+}
+.concl-left {
+  flex-grow: 1;
+}
+.concl-center {
+  border-top: 1px solid #575279;
+}
+.concl-right {
+  flex-grow: 1;
+}
+.prems > .proof:not(:first-child) > .concl > .concl-left {
+  border-bottom: 1px solid #575279;
+}
+.prems > .proof > .concl > .concl-center {
+  border-bottom: 1px solid #575279;
+}
+.prems > .proof:not(:last-child) > .concl > .concl-right {
+  border-bottom: 1px solid #575279;
+}
+
+span.math > input {
+  /* transform: translateY(2em); */
+}
+
+.seq-input {
+	margin: 2em 1em;
+}
+
+input:not(.rulename input) {
+	padding: 0.5em 1em;
+	border-radius: 20px;
+	border: 2px solid #575279;
+	height: 40px;
+	width: fit-content;
+}
+
+input {
+	color: #575279;
+}
+
+@font-face {
+  font-family: 'Latin Modern Math';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/soutien/data/LatinModernMath.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern Roman';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/soutien/data/lmroman10-regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Latin Modern Roman';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/soutien/data/lmroman10-italic.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Latin Modern Roman';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/soutien/data/lmroman10-bold.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Latin Modern Roman';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/soutien/data/lmroman10-bolditalic.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Latin Modern Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/soutien/data/lmmono10-regular.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Latin Modern Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/soutien/data/lmmono10-italic.otf) format('truetype');
+}
